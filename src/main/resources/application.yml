@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${DATABASE_USER:postgres}
+    password: ${DATABASE_PASSWORD:root}
+    url: ${DATABASE_URL:jdbc:postgresql://localhost/events}
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false

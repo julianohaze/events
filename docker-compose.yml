@@ -1,0 +1,21 @@
+version: '3'
+services:
+  events:
+    image: events:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_PASSWORD=root
+      - DATABASE_URL=jdbc:postgresql://postgres/postgres
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:9.6
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=root
+volumes:
+  postgres-data:
